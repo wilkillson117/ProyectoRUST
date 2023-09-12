@@ -8,19 +8,11 @@ El proyecto "Sistema de Monitoreo de la Casa" (C.A.S.A. - Control Atmosférico y
 2. Compile el proyecto con `cargo build`.
 3. Ejecute el proyecto con `cargo run`.
 
-#### Capturas de Pantalla y Funcionamiento
+#### Captura de Pantalla y Funcionamiento
 
-![Pantalla Principal](./images/main_screen.png)
-- La pantalla principal muestra la hora local y el título del proyecto.
+La pantalla principal muestra la hora local y el título del proyecto. Se muestran los datos más recientes de temperatura, humedad y sensación térmica en un menú. Luego se encuentran los graficos y las tablas que muestra la evolución de la temperatura y humedad en el tiempo.
 
-![Datos en Tiempo Real](./images/real_time_data.png)
-- Se muestran los datos más recientes de temperatura, humedad y sensación térmica.
-
-![Gráfico de Temperatura](./images/temperature_chart.png)
-- Gráfico que muestra la evolución de la temperatura en el tiempo.
-
-![Gráfico de Humedad](./images/humidity_chart.png)
-- Gráfico que muestra la evolución de la humedad en el tiempo.
+![Interfaz](./interfaz.png)
 
 #### Características del Código
 
