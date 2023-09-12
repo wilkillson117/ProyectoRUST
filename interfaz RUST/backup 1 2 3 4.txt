@@ -1,0 +1,63 @@
+// Include necessary libraries
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // Hide console window on Windows in release
+
+use eframe::egui;
+use egui::{FontFamily, FontId, TextStyle};
+use chrono::Local;
+
+// Main function that initiates the application
+fn main() -> Result<(), eframe::Error> {
+    env_logger::init(); // Initialize logging
+    let options = eframe::NativeOptions::default();
+
+    eframe::run_native("HOUSE Monitoring System", options, Box::new(|cc| Box::new(MyApp::new(cc))))
+}
+
+// Function to configure text styles
+fn configure_text_styles(ctx: &egui::Context) {
+    // Customizing text styles, setting proportional fonts
+    use FontFamily::Proportional;
+    let mut style = (*ctx.style()).clone();
+    style.text_styles.insert(TextStyle::Heading, FontId::new(20.0, Proportional));
+    ctx.set_style(style); // Applying the custom styles
+}
+
+// Content function defining the user interface layout
+fn content(ui: &mut egui::Ui) {
+    // Point 1: Display local time in the upper right corner, formatted as "Day, number of the day of the month of the year, and time"
+    ui.horizontal(|ui| {
+        ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+            ui.label(Local::now().format("%A, %d of %B %Y, %H:%M:%S").to_string());
+        });
+    });
+
+    // Point 2: Display title with custom heading style
+    ui.heading("HOUSE Monitoring System");
+
+    // Point 3: Separator line
+    ui.separator();
+
+    // Point 4: Subtitle describing what the application does
+    ui.label("Receives data from serial communication from an Arduino, plots temperature and humidity.");
+
+    // TODO: Implement points 5, 6, and 7
+}
+
+// Structure definition for the application
+struct MyApp;
+
+impl MyApp {
+    // Constructor to initialize the application
+    fn new(cc: &eframe::CreationContext<'_>) -> Self {
+        configure_text_styles(&cc.egui_ctx); // Configure text styles at the start
+        Self
+    }
+}
+
+impl eframe::App for MyApp {
+    // Update function to handle rendering
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        egui::CentralPanel::default().show(ctx, content); // Display the content
+        ctx.request_repaint(); // Request repaint for continuous time update
+    }
+}
