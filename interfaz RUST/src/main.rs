@@ -148,7 +148,7 @@ fn contenido(ui: &mut egui::Ui, mediciones: &VecDeque<(f64, f64, String)>) {
                             egui::ScrollArea::horizontal().show(ui, |ui| {
                                 use egui_extras::{Column, TableBuilder};
                         
-                                let mut tabla_temperatura = TableBuilder::new(ui)
+                                let tabla_temperatura = TableBuilder::new(ui)
                                     .striped(true)
                                     .resizable(true)
                                     .cell_layout(egui::Layout::left_to_right(egui::Align::Center))
@@ -197,7 +197,7 @@ fn contenido(ui: &mut egui::Ui, mediciones: &VecDeque<(f64, f64, String)>) {
                             egui::ScrollArea::horizontal().show(ui, |ui| {
                                 use egui_extras::{Column, TableBuilder};
                         
-                                let mut tabla_humedad = TableBuilder::new(ui)
+                                let tabla_humedad = TableBuilder::new(ui)
                                     .striped(true)
                                     .resizable(true)
                                     .cell_layout(egui::Layout::left_to_right(egui::Align::Center))

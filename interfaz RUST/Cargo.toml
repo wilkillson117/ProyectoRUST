@@ -1,5 +1,5 @@
 [package]
-name = "hello_world_simple"
+name = "Proyecto_Rust_WV_MCC3"
 version = "0.1.0"
 authors = ["Emil Ernerfeldt <emil.ernerfeldt@gmail.com>"]
 license = "MIT OR Apache-2.0"
