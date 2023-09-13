@@ -14,6 +14,10 @@ La pantalla principal muestra la hora local y el título del proyecto. Se muestr
 
 ![Interfaz](./interfaz.png)
 
+La implementación física se hizo con un sensor de temperatura DHT11 conectado a una placa ESP32 que envía datos cada segundo por el puerto COM3.
+
+![Circuito](./circuito.jpeg)
+
 #### Características del Código
 
 - Utiliza una cola `VecDeque` para almacenar las últimas 20 mediciones.
